@@ -20,11 +20,11 @@ type Profile {
   user: User!
 }
 
-
 type Query {
   feed: [Post!]!
   filterPosts(searchString: String): [Post!]!
   post(where: PostWhereUniqueInput!): Post
+  users(searchString: String): [User!]!
 }
 
 type Mutation {
@@ -32,6 +32,12 @@ type Mutation {
   deleteOnePost(where: PostWhereUniqueInput!): Post
   publish(id: ID): Post
   signupUser(data: UserCreateInput!): User!
+  updatProfile(data: ProfileUpdateInput!): Profile!
+}
+
+input ProfileUpdateInput {
+  bio: String
+  id: Int
 }
 
 input PostWhereUniqueInput {

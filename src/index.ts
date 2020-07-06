@@ -1,13 +1,17 @@
 // import { schema } from './schema';
 import { GraphQLServer } from "graphql-yoga";
 import { PrismaClient } from "@prisma/client";
-import Query  from "./Query";
+import Query from "./Query";
+import Mutation from "./Mutation";
+import User from "./User";
+import Post from "./Post";
+import Profile from "./Profile";
 
 const prisma = new PrismaClient();
 
 const server = new GraphQLServer({
   typeDefs: "src/schemas/schema.graphql",
-  resolvers: [Query],
+  resolvers: [Query, Mutation, User, Post, Profile],
   context: {
     prisma,
   },

@@ -18,6 +18,7 @@ model Post {
   author    User     @relation(fields: [authorId], references: [id])
 }
 
+
 model Profile {
   bio    String?
   id     Int     @default(autoincrement()) @id
